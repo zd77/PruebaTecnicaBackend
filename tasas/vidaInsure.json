@@ -1,0 +1,345 @@
+[
+    {
+     "Edad": 18,
+     "hombreNoFumador": 1.35,
+     "mujerNoFumadora": 0.62,
+     "hombreFumador": 1.64,
+     "mujerFumadora": 0.735
+    },
+    {
+     "Edad": 19,
+     "hombreNoFumador": 1.38,
+     "mujerNoFumadora": 0.66,
+     "hombreFumador": 1.79,
+     "mujerFumadora": 0.795
+    },
+    {
+     "Edad": 20,
+     "hombreNoFumador": 1.4,
+     "mujerNoFumadora": 0.66,
+     "hombreFumador": 1.87,
+     "mujerFumadora": 0.855
+    },
+    {
+     "Edad": 21,
+     "hombreNoFumador": 1.4,
+     "mujerNoFumadora": 0.68,
+     "hombreFumador": 1.96,
+     "mujerFumadora": 0.9
+    },
+    {
+     "Edad": 22,
+     "hombreNoFumador": 1.4,
+     "mujerNoFumadora": 0.71,
+     "hombreFumador": 2.07,
+     "mujerFumadora": 0.96
+    },
+    {
+     "Edad": 23,
+     "hombreNoFumador": 1.42,
+     "mujerNoFumadora": 0.71,
+     "hombreFumador": 2.16,
+     "mujerFumadora": 0.99
+    },
+    {
+     "Edad": 24,
+     "hombreNoFumador": 1.43,
+     "mujerNoFumadora": 0.74,
+     "hombreFumador": 2.27,
+     "mujerFumadora": 1.06
+    },
+    {
+     "Edad": 25,
+     "hombreNoFumador": 1.49,
+     "mujerNoFumadora": 0.74,
+     "hombreFumador": 2.53,
+     "mujerFumadora": 1.135
+    },
+    {
+     "Edad": 26,
+     "hombreNoFumador": 1.49,
+     "mujerNoFumadora": 0.78,
+     "hombreFumador": 2.66,
+     "mujerFumadora": 1.195
+    },
+    {
+     "Edad": 27,
+     "hombreNoFumador": 1.51,
+     "mujerNoFumadora": 0.84,
+     "hombreFumador": 2.66,
+     "mujerFumadora": 1.285
+    },
+    {
+     "Edad": 28,
+     "hombreNoFumador": 1.51,
+     "mujerNoFumadora": 0.85,
+     "hombreFumador": 2.67,
+     "mujerFumadora": 1.36
+    },
+    {
+     "Edad": 29,
+     "hombreNoFumador": 1.52,
+     "mujerNoFumadora": 0.92,
+     "hombreFumador": 2.67,
+     "mujerFumadora": 1.46
+    },
+    {
+     "Edad": 30,
+     "hombreNoFumador": 1.53,
+     "mujerNoFumadora": 0.94,
+     "hombreFumador": 2.68,
+     "mujerFumadora": 1.52
+    },
+    {
+     "Edad": 31,
+     "hombreNoFumador": 1.53,
+     "mujerNoFumadora": 1,
+     "hombreFumador": 2.68,
+     "mujerFumadora": 1.66
+    },
+    {
+     "Edad": 32,
+     "hombreNoFumador": 1.55,
+     "mujerNoFumadora": 1.06,
+     "hombreFumador": 2.76,
+     "mujerFumadora": 1.76
+    },
+    {
+     "Edad": 33,
+     "hombreNoFumador": 1.57,
+     "mujerNoFumadora": 1.12,
+     "hombreFumador": 2.76,
+     "mujerFumadora": 1.89
+    },
+    {
+     "Edad": 34,
+     "hombreNoFumador": 1.58,
+     "mujerNoFumadora": 1.21,
+     "hombreFumador": 2.86,
+     "mujerFumadora": 2.05
+    },
+    {
+     "Edad": 35,
+     "hombreNoFumador": 1.61,
+     "mujerNoFumadora": 1.31,
+     "hombreFumador": 2.95,
+     "mujerFumadora": 2.26
+    },
+    {
+     "Edad": 36,
+     "hombreNoFumador": 1.7,
+     "mujerNoFumadora": 1.4,
+     "hombreFumador": 3.12,
+     "mujerFumadora": 2.44
+    },
+    {
+     "Edad": 37,
+     "hombreNoFumador": 1.77,
+     "mujerNoFumadora": 1.52,
+     "hombreFumador": 3.29,
+     "mujerFumadora": 2.65
+    },
+    {
+     "Edad": 38,
+     "hombreNoFumador": 1.9,
+     "mujerNoFumadora": 1.58,
+     "hombreFumador": 3.54,
+     "mujerFumadora": 2.78
+    },
+    {
+     "Edad": 39,
+     "hombreNoFumador": 2.02,
+     "mujerNoFumadora": 1.67,
+     "hombreFumador": 3.8,
+     "mujerFumadora": 2.95
+    },
+    {
+     "Edad": 40,
+     "hombreNoFumador": 2.15,
+     "mujerNoFumadora": 1.77,
+     "hombreFumador": 4.09,
+     "mujerFumadora": 3.13
+    },
+    {
+     "Edad": 41,
+     "hombreNoFumador": 2.33,
+     "mujerNoFumadora": 1.88,
+     "hombreFumador": 4.48,
+     "mujerFumadora": 3.34
+    },
+    {
+     "Edad": 42,
+     "hombreNoFumador": 2.55,
+     "mujerNoFumadora": 2,
+     "hombreFumador": 4.92,
+     "mujerFumadora": 3.59
+    },
+    {
+     "Edad": 43,
+     "hombreNoFumador": 2.81,
+     "mujerNoFumadora": 2.15,
+     "hombreFumador": 5.46,
+     "mujerFumadora": 3.89
+    },
+    {
+     "Edad": 44,
+     "hombreNoFumador": 3.1,
+     "mujerNoFumadora": 2.32,
+     "hombreFumador": 6.09,
+     "mujerFumadora": 4.23
+    },
+    {
+     "Edad": 45,
+     "hombreNoFumador": 3.44,
+     "mujerNoFumadora": 2.53,
+     "hombreFumador": 6.75,
+     "mujerFumadora": 4.63
+    },
+    {
+     "Edad": 46,
+     "hombreNoFumador": 3.77,
+     "mujerNoFumadora": 2.76,
+     "hombreFumador": 7.37,
+     "mujerFumadora": 5.08
+    },
+    {
+     "Edad": 47,
+     "hombreNoFumador": 4.12,
+     "mujerNoFumadora": 3.06,
+     "hombreFumador": 8.07,
+     "mujerFumadora": 5.64
+    },
+    {
+     "Edad": 48,
+     "hombreNoFumador": 4.33,
+     "mujerNoFumadora": 3.38,
+     "hombreFumador": 8.46,
+     "mujerFumadora": 6.33
+    },
+    {
+     "Edad": 49,
+     "hombreNoFumador": 4.57,
+     "mujerNoFumadora": 3.74,
+     "hombreFumador": 8.9,
+     "mujerFumadora": 7.11
+    },
+    {
+     "Edad": 50,
+     "hombreNoFumador": 4.91,
+     "mujerNoFumadora": 4.16,
+     "hombreFumador": 9.54,
+     "mujerFumadora": 7.97
+    },
+    {
+     "Edad": 51,
+     "hombreNoFumador": 5.31,
+     "mujerNoFumadora": 4.62,
+     "hombreFumador": 10.3,
+     "mujerFumadora": 8.91
+    },
+    {
+     "Edad": 52,
+     "hombreNoFumador": 5.86,
+     "mujerNoFumadora": 5.13,
+     "hombreFumador": 11.33,
+     "mujerFumadora": 9.93
+    },
+    {
+     "Edad": 53,
+     "hombreNoFumador": 6.45,
+     "mujerNoFumadora": 5.69,
+     "hombreFumador": 12.5,
+     "mujerFumadora": 11
+    },
+    {
+     "Edad": 54,
+     "hombreNoFumador": 7.2,
+     "mujerNoFumadora": 6.28,
+     "hombreFumador": 13.96,
+     "mujerFumadora": 12.17
+    },
+    {
+     "Edad": 55,
+     "hombreNoFumador": 8.12,
+     "mujerNoFumadora": 6.91,
+     "hombreFumador": 15.59,
+     "mujerFumadora": 13.41
+    },
+    {
+     "Edad": 56,
+     "hombreNoFumador": 9.06,
+     "mujerNoFumadora": 7.65,
+     "hombreFumador": 17.27,
+     "mujerFumadora": 14.73
+    },
+    {
+     "Edad": 57,
+     "hombreNoFumador": 10.08,
+     "mujerNoFumadora": 8.41,
+     "hombreFumador": 19.05,
+     "mujerFumadora": 16.14
+    },
+    {
+     "Edad": 58,
+     "hombreNoFumador": 10.94,
+     "mujerNoFumadora": 9.23,
+     "hombreFumador": 20.44,
+     "mujerFumadora": 17.5
+    },
+    {
+     "Edad": 59,
+     "hombreNoFumador": 11.93,
+     "mujerNoFumadora": 10.04,
+     "hombreFumador": 22.04,
+     "mujerFumadora": 19
+    },
+    {
+     "Edad": 60,
+     "hombreNoFumador": 13.12,
+     "mujerNoFumadora": 10.89,
+     "hombreFumador": 23.97,
+     "mujerFumadora": 20.57
+    },
+    {
+     "Edad": 61,
+     "hombreNoFumador": 14.59,
+     "mujerNoFumadora": 11.81,
+     "hombreFumador": 26.38,
+     "mujerFumadora": 22.17
+    },
+    {
+     "Edad": 62,
+     "hombreNoFumador": 16.36,
+     "mujerNoFumadora": 12.81,
+     "hombreFumador": 29.28,
+     "mujerFumadora": 23.99
+    },
+    {
+     "Edad": 63,
+     "hombreNoFumador": 18.36,
+     "mujerNoFumadora": 13.84,
+     "hombreFumador": 32.5,
+     "mujerFumadora": 25.81
+    },
+    {
+     "Edad": 64,
+     "hombreNoFumador": 20.45,
+     "mujerNoFumadora": 14.95,
+     "hombreFumador": 35.76,
+     "mujerFumadora": 27.72
+    },
+    {
+     "Edad": 65,
+     "hombreNoFumador": 22.91,
+     "mujerNoFumadora": 16.36,
+     "hombreFumador": 39.42,
+     "mujerFumadora": 30.11
+    },
+    {
+     "Edad": 66,
+     "hombreNoFumador": 25.19,
+     "mujerNoFumadora": 17.75,
+     "hombreFumador": 42.61,
+     "mujerFumadora": 32.38
+    }
+   ]
