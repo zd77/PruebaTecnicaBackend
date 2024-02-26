@@ -49,13 +49,16 @@ class InsuranceCalculator {
   }
 }
 
-// const smokingGenderRate = ( filteredByAge: InsureData, gender: string, smoker: boolean, sumaAsegurada: number ): number => {
-//   let rate: number = 0
-//   if( gender === 'M') smoker ? rate = filteredByAge.hombreFumador : rate = filteredByAge.hombreNoFumador
-//   else smoker ? rate = filteredByAge.mujerFumadora : rate = filteredByAge.mujerNoFumadora
-//   console.log({rate})
-//   return (rate/1000) * sumaAsegurada
-// }
+const getSegurosPlusYearlyFee = async (edad: number, sumaAsegurada: number, sexo: string): Promise<number> => {
+  const apiUrl = 'https://api-dev.medicatel.red/cotizar/vida/seguros_plus'
+  const username = 'ingenieriaDigital'
+  const password = '9YEL$m3Kcs?5'
+  const requestBody = { edad, sumaAsegurada, sexo };
+  const segurosPlusResp = await axios.post(apiUrl, requestBody, {
+    auth: { username, password }
+  });
+  return segurosPlusResp.data.data.primaAnual
+}
 
 export const insuranceComparisonController = async (body: z.infer<typeof validateInsuranceCriteriaSchema>) => {
   const { edad, sumaAsegurada, sexo, fumador } = body
@@ -74,14 +77,8 @@ export const insuranceComparisonController = async (body: z.infer<typeof validat
       sumaAsegurada
     )
 
-    const apiUrl = 'https://api-dev.medicatel.red/cotizar/vida/seguros_plus'
-    const username = 'ingenieriaDigital'
-    const password = '9YEL$m3Kcs?5'
-    const requestBody = { edad, sumaAsegurada, sexo };
-    const segurosPlusResp = await axios.post(apiUrl, requestBody, {
-      auth: { username, password }
-    });
-    const segurosPlusYearlyFee = segurosPlusResp.data.data.primaAnual
+    const segurosPlusYearlyFee = await getSegurosPlusYearlyFee(edad, sumaAsegurada, sexo)
+    
     return new ApiResponse({
       statusCode: 200,
       message: 'Success',
