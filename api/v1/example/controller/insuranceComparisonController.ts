@@ -15,13 +15,47 @@ interface InsureData {
 
 const filepath = path.resolve(__dirname,"../../../../tasas/vidaInsure.json")
 
-const smokingGenderRate = ( filteredByAge: InsureData, gender: string, smoker: boolean, sumaAsegurada: number ): number => {
-  let rate: number = 0
-  if( gender === 'M') smoker ? rate = filteredByAge.hombreFumador : rate = filteredByAge.hombreNoFumador
-  else smoker ? rate = filteredByAge.mujerFumadora : rate = filteredByAge.mujerNoFumadora
-  console.log({rate})
-  return (rate/1000) * sumaAsegurada
+interface InsuranceRateStrategy {
+  calculateRate(filteredByAge: InsureData, smoker: boolean): number;
 }
+
+class MaleInsuranceRateStrategy implements InsuranceRateStrategy {
+  calculateRate(filteredByAge: InsureData, smoker: boolean): number {
+    return smoker ? filteredByAge.hombreFumador : filteredByAge.hombreNoFumador
+  }
+}
+class FemaleInsuranceRateStrategy implements InsuranceRateStrategy {
+  calculateRate(filteredByAge: InsureData, smoker: boolean): number {
+    return smoker ? filteredByAge.mujerFumadora : filteredByAge.mujerNoFumadora
+  }
+}
+
+class InsuranceCalculator {
+  private readonly strategies: Record<string, InsuranceRateStrategy>;
+  constructor(){
+    this.strategies = {
+      M: new MaleInsuranceRateStrategy,
+      F: new FemaleInsuranceRateStrategy
+    }
+  }
+
+  calculateRate(filteredByAge: InsureData, gender: string, smoker: boolean, sumaAsegurada: number): number {
+    const strategy = this.strategies[gender.toUpperCase()]
+    if(!strategy) {
+      throw new Error('Invalid gender provider')
+    }
+    const rate = strategy.calculateRate(filteredByAge, smoker)
+    return (rate/1000)*sumaAsegurada
+  }
+}
+
+// const smokingGenderRate = ( filteredByAge: InsureData, gender: string, smoker: boolean, sumaAsegurada: number ): number => {
+//   let rate: number = 0
+//   if( gender === 'M') smoker ? rate = filteredByAge.hombreFumador : rate = filteredByAge.hombreNoFumador
+//   else smoker ? rate = filteredByAge.mujerFumadora : rate = filteredByAge.mujerNoFumadora
+//   console.log({rate})
+//   return (rate/1000) * sumaAsegurada
+// }
 
 export const insuranceComparisonController = async (body: z.infer<typeof validateInsuranceCriteriaSchema>) => {
   const { edad, sumaAsegurada, sexo, fumador } = body
@@ -29,10 +63,16 @@ export const insuranceComparisonController = async (body: z.infer<typeof validat
     const rawData = fs.readFileSync(filepath, 'utf-8');
     const jsonData: InsureData[] = JSON.parse(rawData);
     const [filterdInsureDataByAge] = jsonData.filter(( data: InsureData ) => data.Edad === edad )
-    console.log(filterdInsureDataByAge)
-    const insureYearlyFee = smokingGenderRate(filterdInsureDataByAge, sexo, fumador, sumaAsegurada)
-    console.log({insureYearlyFee})
 
+    if(!filterdInsureDataByAge) throw new Error('No data available for the provided age')
+
+    const insuranceCalculator = new InsuranceCalculator()
+    const insureYearlyFee = insuranceCalculator.calculateRate(
+      filterdInsureDataByAge,
+      sexo,
+      fumador,
+      sumaAsegurada
+    )
 
     const apiUrl = 'https://api-dev.medicatel.red/cotizar/vida/seguros_plus'
     const username = 'ingenieriaDigital'
