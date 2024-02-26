@@ -1,12 +1,14 @@
 import { Application } from 'express';
 
-import example from './v1/example/router';
+import { createRouter } from './v1/example/router';
+import { BinaryTreeFromJSON } from '../structs/BinaryTreeFromJSON';
 
 
-function routerApi(app: Application) {
+function routerApi(app: Application, dataTree: BinaryTreeFromJSON) {
+  const router = createRouter( dataTree );
   app.use(
     '/api',
-    example,
+    router,
   );
 }
 

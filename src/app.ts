@@ -9,6 +9,7 @@ import routerApi from '../api/index';
 
 import { createServer } from 'http';
 import { errorHandler } from '../helpers/errorHandler';
+import { initDataTreeFromJSON } from '../structs/BinaryTreeFromJSON';
 
 const morgan = require('morgan');
 
@@ -27,9 +28,9 @@ try {
   app.use(express.json());
 
   // Puerto de la app
+  const dataTree = initDataTreeFromJSON();
   const port = process.env.PORT || 3000;
-
-  routerApi(app);
+  routerApi(app, dataTree);
 
   app.use(errorHandler);
 

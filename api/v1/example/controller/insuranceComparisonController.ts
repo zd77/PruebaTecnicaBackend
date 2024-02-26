@@ -5,6 +5,7 @@ import axios from 'axios'
 import { ApiError, ApiResponse } from "../../../../helpers"
 import { validateInsuranceCriteriaSchema } from '../helpers/schemas';
 import { InsureData } from "../interfaces/insureData"
+import { BinaryTreeFromJSON } from '../../../../structs/BinaryTreeFromJSON';
 
 const filepath = path.resolve(__dirname,"../../../../tasas/vidaInsure.json")
 
@@ -52,12 +53,13 @@ const getSegurosPlusYearlyFee = async (edad: number, sumaAsegurada: number, sexo
   return segurosPlusResp.data.data.primaAnual
 }
 
-export const insuranceComparisonController = async (body: z.infer<typeof validateInsuranceCriteriaSchema>) => {
+export const insuranceComparisonController = async (
+  body: z.infer<typeof validateInsuranceCriteriaSchema>,
+  binaryTreeFromJson: BinaryTreeFromJSON
+) => {
   const { edad, sumaAsegurada, sexo, fumador } = body
   try {
-    const rawData = fs.readFileSync(filepath, 'utf-8');
-    const jsonData: InsureData[] = JSON.parse(rawData);
-    const [filterdInsureDataByAge] = jsonData.filter(( data: InsureData ) => data.Edad === edad )
+    const filterdInsureDataByAge = binaryTreeFromJson.buscarPorEdad(edad);
 
     if(!filterdInsureDataByAge) throw new Error('No data available for the provided age')
 
