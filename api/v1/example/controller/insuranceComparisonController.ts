@@ -4,14 +4,7 @@ import { z } from 'zod';
 import axios from 'axios'
 import { ApiError, ApiResponse } from "../../../../helpers"
 import { validateInsuranceCriteriaSchema } from '../helpers/schemas';
-
-interface InsureData {
-  Edad: number
-  hombreFumador: number 
-  hombreNoFumador: number 
-  mujerFumadora: number 
-  mujerNoFumadora: number 
-}
+import { InsureData } from "../interfaces/insureData"
 
 const filepath = path.resolve(__dirname,"../../../../tasas/vidaInsure.json")
 
@@ -29,7 +22,6 @@ class FemaleInsuranceRateStrategy implements InsuranceRateStrategy {
     return smoker ? filteredByAge.mujerFumadora : filteredByAge.mujerNoFumadora
   }
 }
-
 class InsuranceCalculator {
   private readonly strategies: Record<string, InsuranceRateStrategy>;
   constructor(){
@@ -78,10 +70,11 @@ export const insuranceComparisonController = async (body: z.infer<typeof validat
     )
 
     const segurosPlusYearlyFee = await getSegurosPlusYearlyFee(edad, sumaAsegurada, sexo)
-    
+
     return new ApiResponse({
       statusCode: 200,
-      message: 'Success',
+      title: 'Insurance Yearly Fee Comparison',
+      message: 'The comparasion of yearly fee between insurances was successfull',
       success: true,
       data: {
         InSure: {
@@ -91,7 +84,6 @@ export const insuranceComparisonController = async (body: z.infer<typeof validat
           primaAnual: segurosPlusYearlyFee
         }
       },
-      title: 'Success'
     })
   } catch( error ) {
     return new ApiError({ 

@@ -17,7 +17,7 @@ router.post(ruta+'/login',/*Aqui va el middleware */ async function (req, res) {
   }
 );
 
-router.post(ruta+'/something', async ( req, res ) => {
+router.post('/insuranceComparison', async ( req, res ) => {
   const values = await validateInsuranceCriteriaSchema.parseAsync(req.body)
   const response = await insuranceComparisonController( values );
   return res.status(200).json(response)
