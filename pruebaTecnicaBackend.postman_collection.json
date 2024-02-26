@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "f67c9cfb-1ea0-4d01-a224-823ca86c7039",
+		"name": "pruebaTecnicaBackend",
+		"description": "[Para probar la API de comparacion de seguros utilizar:  \nPOST](http://localhost:3000/api/insuranceComparisonAuthorization:username:)\n\n[http://localhost:3000/api/insuranceComparison](http://localhost:3000/api/insuranceComparisonAuthorization:username:)\n\n[Authorization:](http://localhost:3000/api/insuranceComparisonAuthorization:username:)\n\n[username:](http://localhost:3000/api/insuranceComparisonAuthorization:username:)  \ningenieriaDigital\n\npassword:\n\n9YEL$m3Kcs?5\n\ny un Body con el siguiente formato:  \n{ \"edad\": 25, \"sumaAsegurada\": 200000.00, \"sexo\": \"F\", \"fumador\": true}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11729259"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "9YEL$m3Kcs?5",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ingenieriaDigital",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"edad\": 25,\n    \"sumaAsegurada\": 200000.00,\n    \"sexo\": \"F\",\n    \"fumador\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/insuranceComparison",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"insuranceComparison"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

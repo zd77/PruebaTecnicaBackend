@@ -7,7 +7,7 @@ import { validateInsuranceCriteriaSchema } from '../helpers/schemas';
 import { InsureData } from "../interfaces/insureData"
 import { BinaryTreeFromJSON } from '../../../../structs/BinaryTreeFromJSON';
 
-const filepath = path.resolve(__dirname,"../../../../tasas/vidaInsure.json")
+const segurosPlusURI = 'https://api-dev.medicatel.red/cotizar/vida/seguros_plus'
 
 interface InsuranceRateStrategy {
   calculateRate(filteredByAge: InsureData, smoker: boolean): number;
@@ -42,10 +42,11 @@ class InsuranceCalculator {
   }
 }
 
-const getSegurosPlusYearlyFee = async (edad: number, sumaAsegurada: number, sexo: string): Promise<number> => {
-  const apiUrl = 'https://api-dev.medicatel.red/cotizar/vida/seguros_plus'
-  const username = 'ingenieriaDigital'
-  const password = '9YEL$m3Kcs?5'
+const getSegurosPlusYearlyFee = async (edad: number, sumaAsegurada: number, sexo: string, credentials: string[]): Promise<number> => {
+  const [user, pass] = credentials
+  const apiUrl = segurosPlusURI
+  const username = user
+  const password = pass
   const requestBody = { edad, sumaAsegurada, sexo };
   const segurosPlusResp = await axios.post(apiUrl, requestBody, {
     auth: { username, password }
@@ -55,6 +56,7 @@ const getSegurosPlusYearlyFee = async (edad: number, sumaAsegurada: number, sexo
 
 export const insuranceComparisonController = async (
   body: z.infer<typeof validateInsuranceCriteriaSchema>,
+  credentials: string[],
   binaryTreeFromJson: BinaryTreeFromJSON
 ) => {
   const { edad, sumaAsegurada, sexo, fumador } = body
@@ -71,7 +73,7 @@ export const insuranceComparisonController = async (
       sumaAsegurada
     )
 
-    const segurosPlusYearlyFee = await getSegurosPlusYearlyFee(edad, sumaAsegurada, sexo)
+    const segurosPlusYearlyFee = await getSegurosPlusYearlyFee(edad, sumaAsegurada, sexo, credentials)
 
     return new ApiResponse({
       statusCode: 200,

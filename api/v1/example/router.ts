@@ -20,8 +20,13 @@ export const createRouter = (binaryTreeFromJson: BinaryTreeFromJSON): Router => 
   );
   
   router.post('/insuranceComparison', async ( req, res ) => {
+    const authHeaders = req.headers['authorization']
+    if( !authHeaders ) return res.status(401).json('Unvalid credentials')
+    const token = authHeaders.split(' ')[1]
+    const decodedToken = Buffer.from(token, 'base64').toString('utf-8')
+    const credentials = decodedToken.split(':')
     const values = await validateInsuranceCriteriaSchema.parseAsync(req.body)
-    const response = await insuranceComparisonController( values, binaryTreeFromJson );
+    const response = await insuranceComparisonController( values, credentials, binaryTreeFromJson );
     return res.status(200).json(response)
   })
 
